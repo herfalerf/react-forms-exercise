@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { v4 as uuid } from "uuid";
 
 const NewBoxForm = ({ addBox }) => {
   const [formData, setFormData] = useState({
@@ -17,7 +18,7 @@ const NewBoxForm = ({ addBox }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    addBox({ ...formData });
+    addBox({ ...formData, id: uuid() });
     setFormData({ color: "", width: "", height: "" });
     console.log(`check out state -> ${formData}`);
   };
