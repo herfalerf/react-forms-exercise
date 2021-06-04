@@ -1,11 +1,6 @@
 import React, { useState } from "react";
 
-const NewBoxForm = () => {
-  const handleSubmit = (evt) => {
-    evt.preventDefault();
-    console.log(`check out state -> ${formData}`);
-  };
-
+const NewBoxForm = ({ addBox }) => {
   const [formData, setFormData] = useState({
     color: "",
     width: "",
@@ -14,10 +9,17 @@ const NewBoxForm = () => {
 
   const handleChange = (evt) => {
     const { name, value } = evt.target;
-    setFormData((fData) => ({
-      ...fData,
+    setFormData((formData) => ({
+      ...formData,
       [name]: value,
     }));
+  };
+
+  const handleSubmit = (evt) => {
+    evt.preventDefault();
+    addBox({ ...formData });
+    setFormData({ color: "", width: "", height: "" });
+    console.log(`check out state -> ${formData}`);
   };
 
   return (
@@ -26,6 +28,7 @@ const NewBoxForm = () => {
       <input
         id="color"
         name="color"
+        type="text"
         value={formData.color}
         onChange={handleChange}
       />
@@ -34,6 +37,7 @@ const NewBoxForm = () => {
       <input
         id="width"
         name="width"
+        type="number"
         value={formData.width}
         onChange={handleChange}
       />
@@ -42,6 +46,7 @@ const NewBoxForm = () => {
       <input
         id="height"
         name="height"
+        type="number"
         value={formData.height}
         onChange={handleChange}
       />

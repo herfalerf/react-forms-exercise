@@ -10,12 +10,12 @@ const BoxList = () => {
 
   return (
     <div>
-      <Box color="red" height="50px" width="75px" />
-      <Box color="blue" height="50px" width="75px" />
-      <NewBoxForm />
-      {colorBox.map((color, height, width) => {
-        <Box color={color} height={height} width={width} />;
-      })}
+      {/* <Box color="red" height="50px" width="75px" />
+      <Box color="blue" height="50px" width="75px" /> */}
+      <NewBoxForm addBox={addBox} />
+      {colorBox.map((box) => (
+        <Box color={box.color} height={box.height} width={box.width} />
+      ))}
     </div>
   );
 };
