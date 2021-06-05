@@ -26,12 +26,12 @@ it("can add a new box", function () {
   const boxList = render(<BoxList />);
 
   // no boxes yet
-  expect(boxList.queryByText("Remove The Box!")).not.toBeInTheDocument();
+  expect(boxList.queryByText("X")).not.toBeInTheDocument();
 
   addBox(boxList);
 
   // expect to see a box
-  const removeButton = boxList.getByText("Remove The Box!");
+  const removeButton = boxList.getByText("X");
   expect(removeButton).toBeInTheDocument();
   expect(removeButton.previousSibling).toHaveStyle(`
       width: 2em;
@@ -48,7 +48,7 @@ it("can remove a box", function () {
   const boxList = render(<BoxList />);
   addBox(boxList);
 
-  const removeButton = boxList.getByText("Remove The Box!");
+  const removeButton = boxList.getByText("X");
 
   // click the remove button and the box should be gone
   fireEvent.click(removeButton);
