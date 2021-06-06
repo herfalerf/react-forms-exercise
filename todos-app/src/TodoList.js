@@ -5,7 +5,7 @@ import NewTodoForm from "./NewTodoForm";
 const TodoList = () => {
   const [todos, setTodos] = useState([]);
   const addTodo = (newTodo) => {
-    setTodo((todos) => [...todos, newTodo]);
+    setTodos((todos) => [...todos, newTodo]);
   };
   const remove = (id) => {
     setTodos((todos) => todos.filter((todo) => todo.id != id));

@@ -16,9 +16,8 @@ const NewTodoForm = ({ addTodo }) => {
 
   const handleSubmit = (evt) => {
     evt.preventDefault();
-    addBox({ ...formData, id: uuid() });
-    setFormData({ color: "", width: "", height: "" });
-    console.log(`check out state -> ${formData}`);
+    addTodo({ ...formData, id: uuid() });
+    setFormData({ task: "" });
   };
 
   return (
